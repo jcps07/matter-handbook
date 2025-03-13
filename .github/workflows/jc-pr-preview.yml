@@ -1,4 +1,4 @@
-name: Deploy PR previews
+name: Deploy PR previews Test
 
 on:
   # Only run on Staging
