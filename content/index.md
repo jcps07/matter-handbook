@@ -1,10 +1,3 @@
-+++
-title = "Welcome"
-chapter = true
-weight = 5
-pre = "<b>1. </b>"
-+++
-
 # Welcome
 
 Welcome to the Matter Handbook. This handbook is here to help make building and shipping devices with Matter easier by providing answers to common questions. Inside, you’ll find information on everything from getting started with the Working Groups, the basics of Matter, navigating the SDK, and more.
