@@ -39,7 +39,7 @@ jobs:
           fetch-depth: 0
       - name: Build with Retype (Free Mode)
         run: |
-          retype build --output public --base /pr-${{ github.event.number }}
+          retype build --output public
       - name: Deploy preview
         uses: jakejarvis/s3-sync-action@master
         with:
