@@ -37,9 +37,21 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           submodules: recursive
           fetch-depth: 0
+      - name: Generate retype.yml
+        run: |
+          cat <<EOF > retype.yml
+          siteName: Matter Handbook Preview
+          siteDescription: Preview of the Matter Handbook.
+          siteUrl: ${{ vars.PREVIEW_URL }}/pr-${{ github.event.number }}
+          base: /pr-${{ github.event.number }}
+          input: content
+          output: public
+          theme: default
+          include: assets
+          EOF
       - name: Build with Retype (Free Mode)
         run: |
-          retype build --output public
+          retype build
       - name: Deploy preview
         uses: jakejarvis/s3-sync-action@master
         with:
