@@ -2,7 +2,6 @@ branding:
   title: Matter
   label: Handbook
 url: https://handbook.buildwithmatter.com/
-base: /pr-${{ github.event.number }}
 input: content
 output: public
 theme: default
