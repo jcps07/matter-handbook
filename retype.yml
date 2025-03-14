@@ -1,0 +1,15 @@
+siteName: Matter Handbook Preview
+siteDescription: Preview of the Matter Handbook.
+siteUrl: ${{ vars.PREVIEW_URL }}/pr-${{ github.event.number }}
+url: https://handbook.buildwithmatter.com/
+base: /pr-${{ github.event.number }}
+input: content
+output: public
+theme: default
+include: assets
+branding:
+  title: Matter
+  label: Handbook
+  logo: static/favicon-32x32.png
+footer:
+  copyright: "&copy; Copyright {{ year }} Matter Handbook Authors <br>Matter is a registered trademark of the Connectivity Standards Alliance.<br>All other trademarks are property of their respective owners."
