@@ -28,9 +28,15 @@ jobs:
       - name: Install Retype CLI
         run: |
           curl -sSL "https://retype.com/download/latest/linux-x64" -o retype
-          chmod +x retype
-          sudo mv retype /usr/local/bin/
-          retype --version
+          file retype
+          if [[ $(file retype) == *"executable"* ]]; then
+            chmod +x retype
+            sudo mv retype /usr/local/bin/
+            retype --version
+          else
+            echo "Error: Downloaded file is not an executable."
+            exit 1
+          fi
       - name: Checkout
         uses: actions/checkout@v4
         with:
