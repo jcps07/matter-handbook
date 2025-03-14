@@ -22,21 +22,15 @@ jobs:
   build-preview:
     if: github.repository == 'jcps07/matter-handbook'
     runs-on: ubuntu-latest
-    env:
-      RETYPE_VERSION: latest # Or specify a version like 3.0.0
     steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # or your preferred Node.js version
       - name: Install Retype CLI
         run: |
-          curl -sSL "https://retype.com/download/latest/linux-x64" -o retype
-          file retype
-          if [[ $(file retype) == *"executable"* ]]; then
-            chmod +x retype
-            sudo mv retype /usr/local/bin/
-            retype --version
-          else
-            echo "Error: Downloaded file is not an executable."
-            exit 1
-          fi
+          npm install retypeapp --global
+          retype --version
       - name: Checkout
         uses: actions/checkout@v4
         with:
