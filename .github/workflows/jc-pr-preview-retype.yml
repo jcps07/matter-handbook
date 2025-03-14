@@ -1,0 +1,66 @@
+name: Deploy PR previews (Retype)
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch:
+
+concurrency: preview-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build-preview:
+    if: github.repository == 'jcps07/matter-handbook'
+    runs-on: ubuntu-latest
+    env:
+      RETYPE_VERSION: latest # Or specify a version like 3.0.0
+    steps:
+      - name: Install Retype CLI
+        run: |
+          curl -sSL "https://retype.com/download/latest/linux-x64" -o retype
+          chmod +x retype
+          sudo mv retype /usr/local/bin/
+          retype --version
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          submodules: recursive
+          fetch-depth: 0
+      - name: Build with Retype (Free Mode)
+        run: |
+          retype build --output public --base /pr-${{ github.event.number }}
+      - name: Deploy preview
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: './public'
+          DEST_DIR: 'pr-${{ github.event.number }}'
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.AWS_CF_DISTRIBUTION }}
+          PATHS: '/pr-${{ github.event.number }}/*'
+          AWS_REGION: ${{ vars.AWS_S3_BUCKET_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            Preview deployed at ${{ vars.PREVIEW_URL }}/pr-${{ github.event.number }}
+            (Preview built in Retype Free Mode, may contain a watermark.)
