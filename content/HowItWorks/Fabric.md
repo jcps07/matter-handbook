@@ -1,9 +1,7 @@
-+++
-title = "The Fabric"
-chapter = false
-weight = 43
-+++
-
+---
+title: The Fabric
+order: 650
+---
 The Matter spec uses sophisticated methods for encrypting and decrypting information, as well as safe mechanisms for assuring a Node's identity and sharing cryptographic credentials.
 
 Whenever a set of Devices in a network shares the same security domain, and thus allows secure communication between Nodes, this set is called a Fabric. Devices within a fabric share the same Certificate Authority (CA) top-level certificate (Root of Trust) and  a 64-bit identifier named Fabric ID, unique within the context of that CA.
@@ -22,7 +20,7 @@ Node Operational Certificate (NOC) is the set of credentials that Nodes use to c
 
 NOCSR is a procedure that runs on Node being commissioned. It binds several cryptographical elements, then sends them to the Commissioner, who requests the CA ecosystem for its corresponding NOC. This diagram depicts this dependency tree and the order by which some operations occur.
 
-![NOC Generation Dependencies](../../primer-csr.png)
+![NOC Generation Dependencies](/static/primer-csr.png)
 
 While understanding each cryptographic element is important for SDK development, it is outside of this document's scope to fully analyze their role and implications. What's important to note is that:
 

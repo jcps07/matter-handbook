@@ -1,9 +1,7 @@
-+++
-title = "How We Work"
-chapter = false
-weight = 15
-+++
-
+---
+title: How We Work
+order: 50
+---
 ### Working Groups
 
 The Alliance has a number of Working Groups responsible for each of the different standards that we manage.

@@ -1,10 +1,52 @@
+# -----------------------------------------------------------------------------
+# Retype Pro
+# -----------------------------------------------------------------------------
+poweredByRetype: false              # Remove "Powered by Retype"
+
+# -----------------------------------------------------------------------------
+# Retype
+# -----------------------------------------------------------------------------
+input: content                      # Root folder
+output: public                      # Output directory
+
+# -----------------------------------------------------------------------------
+url: https://handbook.buildwithmatter.com/
+
+# -----------------------------------------------------------------------------
 branding:
   title: Matter
+  logo: /static/favicon-32x32.png
   label: Handbook
-url: https://handbook.buildwithmatter.com/
-input: content
-output: public
-theme: default
-include: assets
+
+# -----------------------------------------------------------------------------
+#links:                        # Lnks to add to the top bar
+#  - text: csa-iot.org
+#    link: https://csa-iot.org
+
+# -----------------------------------------------------------------------------
 footer:
   copyright: "&copy; Copyright {{ year }} Matter Handbook Authors <br>Matter is a registered trademark of the Connectivity Standards Alliance.<br>All other trademarks are property of their respective owners."
+
+# -----------------------------------------------------------------------------
+theme: default
+favicon: /static/favicon-32x32.png
+
+# -----------------------------------------------------------------------------
+editor:
+  enabled: false                     # Remove 'edit' button
+
+# -----------------------------------------------------------------------------
+meta:
+  title: " | Matter Handbook"         # Appended to the <title> element on all pages
+
+# -----------------------------------------------------------------------------
+search:                       # Custom configuration of the website search
+  hotkeys:
+    - "/"                     # Keyboard key to set focus in the search field
+                              # Default is "k"
+  maxResults: 20              # Max number of search results to render
+  minChars: 2                 # Min characters required to trigger a search
+  mode: full                  # The search index creation mode
+                              # Options include: full | partial | basic
+  noResultsFoundMsg: "No results found" # Message when no results are found
+  placeholder: Search         # Placeholder text used in the input field

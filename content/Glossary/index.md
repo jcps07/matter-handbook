@@ -1,12 +1,8 @@
-+++
-title = "Glossary"
-chapter = true
-weight = 7
-pre = "<b>7. </b>"
-+++
-
-# Glossary & Acronym Decoder
-
+---
+label: Glossary
+title: Glossary & Acronym Decoder
+icon: log
+---
 | Term     | Definition                                                                                                                                                                |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ACL      | Access Control List. This is a list of entries in the Access Control cluster that grant access privileges to device and groups                                            |

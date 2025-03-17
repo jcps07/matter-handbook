@@ -1,9 +1,7 @@
-+++
-title = "Resources"
-chapter = false
-weight = 30
-+++
-
+---
+title: Resources
+order: 40
+---
 ## Resources for Members
 
 If you are already a member of the Alliance, here are some helpful links found in Causeway (you'll need to log in with your member credentials).

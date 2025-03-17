@@ -1,10 +1,7 @@
-+++
-title = "The Device Data Model"
-chapter = false
-weight = 20
-+++
-
-
+---
+title: The Device Data Model
+order: 850
+---
 Devices in Matter have a well-defined data model (DM), which is a hierarchical modeling of a Device's features. At the top level of this hierarchy there is a Device.
 
 ## Devices and Endpoints
@@ -13,7 +10,7 @@ All Devices, including smartphones and home assistants, are composed of Nodes. A
 
 Nodes are a collection of Endpoints. Each Endpoint encloses a feature set. For instance, an Endpoint might relate to a lighting functionality, while another relates to motion detection, and another deals with utilities such as Device OTA.
 
-![Devices Nodes and Endpoints](../../primer-device-node.png)
+![Devices Nodes and Endpoints](/static/primer-device-node.png)
 
 ## Node Roles
 
@@ -35,7 +32,7 @@ A Node may also have several Endpoints, each creating an instance of the same fu
 
 At the last level we'll find Attributes, which are states held by the node, such as the current level attribute of a level control cluster. Attributes may be defined as different data types such as uint8, strings or arrays.
 
-![Nodes, Endpoints, Attributes and Commands](../../primer-node-endpoint-attribute.png)
+![Nodes, Endpoints, Attributes and Commands](/static/primer-node-endpoint-attribute.png)
 
 ### Commands
 
@@ -45,7 +42,7 @@ Besides Attributes, Clusters also have Commands, which are actions that may be p
 
 Lastly, Clusters may also have Events, which can be thought of as a record of past state transitions. While Attributes represent the current states, events are a journal of the past, and include a monotonically increasing counter, a timestamp and a priority. They enable capturing state transitions, as well as data modeling that is not readily achieved with attributes.
 
-![A sample of the hierarchy of Matter Devices interaction model](../../primer-device-type.png)
+![A sample of the hierarchy of Matter Devices interaction model](/static/primer-device-type.png)
 
 The Endpoint 0 is reserved for the Utility Clusters. Utility Clusters are specific Clusters that enclose servicing functionality on an Endpoint, such as discovery, addressing, diagnostics and software update. On the other hand, the Application Clusters support primary actions such as on/off or temperature measurement.
 
@@ -73,7 +70,7 @@ For instance, we may have two table lamps: Node A and Node B. Both nodes impleme
 
 But, as typical table lamps do, our physical devices will also include an On/Off Light Switch Device Type for their local on/off switches. This Device Type must implement an On/Off Client Cluster so it may control the Server Clusters.
 
-![Client and Server Clusters](../..//primer-client-server.png)
+![Client and Server Clusters](/static/primer-client-server.png)
 
 In this sample, the On/Off Client Cluster on Node A is changing the attributes of the On/Off Server Cluster on Node A and Node B, while the Node B's Client Cluster is only changing the Server Cluster on Node B itself.
 

@@ -1,9 +1,7 @@
-+++
-title = "Supported Device Types"
-chapter = false
-weight = 10
-+++
-
+---
+title: Supported Device Types
+order: 900
+---
 In order to be certified a Matter device must conform to one of the approved device types.
 
 As of Matter 1.4 the following types are certifiable.

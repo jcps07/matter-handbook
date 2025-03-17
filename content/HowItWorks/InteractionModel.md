@@ -1,9 +1,7 @@
-+++
-title = "Interaction Model"
-chapter = false
-weight = 40
-+++
-
+---
+title: Interaction Model
+order: 750
+---
 ## Concepts
 
 The Data Model (DM) of a Node isn't relevant if we can't perform operations on them. The Interaction Model (IM), defines a Node's DM relationship with the DM of other Nodes: a common language for communication between DMs.
@@ -16,7 +14,7 @@ Nodes interact with each other by:
 
 Whenever a Node establishes an encrypted communication sequence with another Node, they constitute an Interaction relationship. Interactions may be composed of one or more Transactions, and Transactions are composed of one or more of Actions which can be understood as IM-level messages between Nodes.
 
-![Hierarchy of Interaction Model](../../primer-im-hierarchy.png)
+![Hierarchy of Interaction Model](/static/primer-im-hierarchy.png)
 
 Several Actions are supported on Transactions, such as a Read Request Action that requests an Attribute or Event from another Node, or its response, the Report Data Action, which carries the information back from the server to the client.
 
@@ -88,7 +86,7 @@ In this Action the Initiator queries a Target providing:
 - Event Requests: list of zero or more Paths to the Target's requested Events.
 After the Read Request Action is received by the Target it will assemble a Report Data Action with the requested information.
 
-![Read Transaction](../../primer-im-reading.png)
+![Read Transaction](/static/primer-im-reading.png)
 
 After the Read Request Action is received by the Target it will assemble a Report Data Action with the requested information.
 
@@ -129,7 +127,7 @@ In addition to a singular Read Request Action, an Initiator may also subscribe t
 
 A Subscription Interaction creates a relationship between two Nodes, in which the Target periodically generates Report Data Actions to the Initiator. The Initiator is the Subscriber and the Target is the Publisher.
 
-![Subscription Transaction](../../primer-im-subscribing.png)
+![Subscription Transaction](/static/primer-im-subscribing.png)
 
 A Subscribe Request Action contains:
 
@@ -178,7 +176,7 @@ Similar to the Read Request Action, in this Action the Initiator provides the Ta
 - Timed Request: a flag that indicates whether this Action is part of a Timed Write Transaction.
 - Suppress Response: a flag that indicates whether the Response Status Action should be suppressed.
 
-![Untimed Write Transaction](../../primer-im-untimed-writing.png)
+![Untimed Write Transaction](/static/primer-im-untimed-writing.png)
 
 #### Write Response Action
 
@@ -239,7 +237,7 @@ Similar to the Read Request Action and Write Request Action, in this Action the 
 - Suppress Response: a flag that indicates whether the Invoke Response Action should be suppressed.
 - Interaction ID: an integer used for matching the Invoke Request Action to the Invoke Response Action.
 
-![Untimed Invoke Transaction](../../primer-im-untimed-invoking.png)
+![Untimed Invoke Transaction](/static/primer-im-untimed-invoking.png)
 
 #### Invoke Response Action
 
@@ -270,7 +268,7 @@ A Initiator starts the Transaction sending this Action that contains:
 
 Once the Timed Request Action is received, the Target must acknowledge the Timed Request Action with a Status Response Action. Once the Initiator receives a Status Response Action reporting no errors, it will send a Invoke Request Action.
 
-![Timed Invoke Transaction](../../primer-im-timed-invoking.png)
+![Timed Invoke Transaction](/static/primer-im-timed-invoking.png)
 
 #### Invoke Request Action
 
