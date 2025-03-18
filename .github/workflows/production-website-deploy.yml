@@ -56,6 +56,18 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      # Determine the GitHub Pages URL and modify retype.yml dynamically.
+      - name: Set url for retype.yml
+        run: |
+          # Check if the repository is not "project-chip/matter-handbook"
+          if [[ "${{ github.repository }}" != "project-chip/matter-handbook" ]]; then
+            # Construct the GitHub Pages URL based on the repository owner and name.
+            URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+            # Use sed to replace the url line in retype.yml with the dynamic URL.
+            sed -i "s|url:.*|url: $URL|g" retype.yml
+          fi
+          echo "retype url: $URL" # Print the URL used in retype.yml file
+
       # Generate the static site from the repository content using Retype. Use License if applies
       - name: Build with Retype
         run: |
@@ -79,13 +91,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Determine Retype URL and Modify retype.yml
-        run: |
-          # Construct the GitHub Pages URL
-          URL= ${{ steps.deployment.outputs.page_url }}
-          # Use sed to replace the url line in retype.yml with the dynamic URL.
-          sed -i "s|url:.*|url: $URL|g" retype.yml
-      - name: Print url set in retype.yml
-        run: |
-          URL=$(grep '^url:' retype.yml | awk '{print $2}') # Extract the URL from retype.yml.
-          echo "url in retype.yml: $URL" # Print the extracted URL to the workflow log.
