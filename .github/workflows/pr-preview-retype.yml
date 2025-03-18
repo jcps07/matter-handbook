@@ -1,4 +1,4 @@
-name: Deploy PR preview (Retype)
+name: Deploy PR preview using Retype website generator
 
 on:
   # Trigger on pull request target events (opened, reopened, synchronized) or manual workflow dispatch.
