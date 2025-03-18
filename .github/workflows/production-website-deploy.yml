@@ -57,7 +57,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       # Determine the GitHub Pages URL and modify retype.yml dynamically.
-      - name: Determine URL and Modify retype.yml
+      - name: Determine Retype URL and Modify retype.yml
         run: |
           if [[ "${{ github.event.repository.owner.login }}" == "${{ github.repository_owner }}" ]]; then
             # Construct the GitHub Pages URL based on the repository owner and name.
@@ -67,7 +67,7 @@ jobs:
           fi
 
       # Generate the static site from the repository content using Retype. Use License if applies
-      # Print the final URL used in the retype.yml file.
+      # Print the URL used in the retype.yml file.
       - name: Build with Retype
         run: |
           URL_RETYPE=$(grep '^url:' retype.yml | awk '{print $2}')
@@ -76,7 +76,7 @@ jobs:
           else
             retype build
           fi
-          echo "retype.yml - url: $URL" # Print the extracted URL to the workflow log.
+          echo "retype.yml - url: $URL_RETYPE"
 
       # Upload the generated static site as a GitHub Pages artifact.
       - name: Upload artifact
