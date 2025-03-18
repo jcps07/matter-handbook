@@ -10,7 +10,7 @@ input: content                      # Root folder
 output: public                      # Output directory
 
 # -----------------------------------------------------------------------------
-#url: https://handbook.buildwithmatter.com/
+url: https://handbook.buildwithmatter.com/
 
 # -----------------------------------------------------------------------------
 branding:
