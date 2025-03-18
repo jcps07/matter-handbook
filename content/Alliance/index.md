@@ -2,6 +2,7 @@
 label: 2. The Alliance
 title: The Connectivity Standards Alliance
 icon: globe
+order: 90
 ---
 Our wide-ranging global membership is on a mission. That mission is to ignite creativity and collaboration in the Internet of Things, by developing, evolving, and promoting universal open standards that enable all objects to securely connect and interact. We believe all objects can work together to enhance the way we live, work, and play. [Learn more](https://csa-iot.org/about/)
 

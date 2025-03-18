@@ -2,6 +2,7 @@
 label: 5. Development
 title: Development
 icon: code
+order: 60
 ---
 Developers have multiple options for creating Matter-certified devices, bridges, or controllers. The official Matter SDK is the recommended choice for most projects, but alternative implementations, such as JavaScript, also offer compelling features for certain use cases.
 
