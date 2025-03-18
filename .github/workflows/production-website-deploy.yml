@@ -66,16 +66,16 @@ jobs:
             sed -i "s|url:.*|url: $URL|g" retype.yml
           fi
 
-      # Generate the static site from the repository content using Retype.
+      # Generate the static site from the repository content using Retype. Use License if applies
+      # Print the final URL used in the retype.yml file.
       - name: Build with Retype
         run: |
-          retype build
-          #retype build --secret ${{ secrets.RETYPE_LICENSE }} # Uncomment and configure if using a Retype license.
-
-      # Print the final URL used in the retype.yml file.
-      - name: Print URL used
-        run: |
-          URL=$(grep '^url:' retype.yml | awk '{print $2}') # Extract the URL from retype.yml.
+          URL_RETYPE=$(grep '^url:' retype.yml | awk '{print $2}')
+          if [[ "$URL_RETYPE" == "https://handbook.buildwithmatter.com/" ]]; then
+            retype build --secret ${{ secrets.RETYPE_LICENSE }}
+          else
+            retype build
+          fi
           echo "retype.yml - url: $URL" # Print the extracted URL to the workflow log.
 
       # Upload the generated static site as a GitHub Pages artifact.
