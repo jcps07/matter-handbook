@@ -10,8 +10,8 @@ input: content                      # Root folder
 output: public                      # Output directory
 
 # -----------------------------------------------------------------------------
-url: https://handbook.buildwithmatter.com/
-siteUrl: https://jcps07.github.io/matter-handbook/
+#url: https://handbook.buildwithmatter.com/
+url: https://jcps07.github.io/matter-handbook/
 
 # -----------------------------------------------------------------------------
 branding:
