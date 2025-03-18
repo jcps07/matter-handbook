@@ -11,12 +11,10 @@ output: public                      # Output directory
 
 # -----------------------------------------------------------------------------
 #url: https://handbook.buildwithmatter.com/
-url: https://jcps07.github.io/matter-handbook/
+#url: https://jcps07.github.io/matter-handbook/
 
 # -----------------------------------------------------------------------------
 branding:
-  #title: Matter
-  #logo: /static/favicon-32x32.png
   logo: /static/matter_logo_night.png
   logoDark: /static/matter_logo_day.png
   label: Handbook
