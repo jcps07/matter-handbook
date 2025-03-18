@@ -71,7 +71,13 @@ jobs:
       # Generate the static site from the repository content using Retype. Use License if applies
       - name: Build with Retype
         run: |
+          # Check if the repository is "project-chip/matter-handbook"
+          if [[ "${{ github.repository }}" == "project-chip/matter-handbook" ]]; then
+            # Use Retype License
+            retype build --secret "${{ secrets.RETYPE_LICENSE }}"
+          else
             retype build
+          fi
 
       # Upload the generated static site as a GitHub Pages artifact.
       - name: Upload artifact
