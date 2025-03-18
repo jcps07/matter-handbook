@@ -24,11 +24,10 @@ jobs:
       # Checks out the repository's code to the virtual machine.
       - uses: actions/checkout@v4
 
-      # Sets up the .NET SDK, version 8.0.x, which is the current LTS version and required for Retype's build process.
-      # This update resolves the warning about .NET 7.0 being unsupported and ensures security and performance benefits.
-      - uses: actions/setup-dotnet@v4
+      # Sets up the .NET SDK, version 7.0.x, required for Retype's build process.
+      - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 7.0.x
 
       # Builds the Retype website using the official Retype GitHub Action.
       # The Retype license is securely passed as a secret.
