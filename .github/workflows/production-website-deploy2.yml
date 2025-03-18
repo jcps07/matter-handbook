@@ -54,8 +54,8 @@ jobs:
       # Generate the static site from the PR content using Retype.
       - name: Build with Retype
         run: |
-          retype build --secret ${{ secrets.RETYPE_LICENSE }}
-
+          retype build
+      #retype build --secret ${{ secrets.RETYPE_LICENSE }}
   # Deployment job
   deploy:
     environment:
