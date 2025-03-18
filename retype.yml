@@ -11,6 +11,7 @@ output: public                      # Output directory
 
 # -----------------------------------------------------------------------------
 url: https://handbook.buildwithmatter.com/
+siteUrl: https://jcps07.github.io/matter-handbook/
 
 # -----------------------------------------------------------------------------
 branding:
@@ -21,7 +22,7 @@ branding:
   label: Handbook
 
 # -----------------------------------------------------------------------------
-#links:                        # Lnks to add to the top bar
+#links:                        # Links to add to the top bar
 #  - text: csa-iot.org
 #    link: https://csa-iot.org
 
@@ -39,7 +40,7 @@ editor:
 
 # -----------------------------------------------------------------------------
 meta:
-  title: " | Matter Handbook"         # Appended to the <title> element on all pages
+  title: " | Matter"         # Appended to the <title> element on all pages
 
 # -----------------------------------------------------------------------------
 search:                       # Custom configuration of the website search
