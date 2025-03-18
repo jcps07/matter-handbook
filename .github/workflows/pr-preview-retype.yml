@@ -1,4 +1,4 @@
-name: Deploy PR previews (Retype)
+name: Deploy PR preview (Retype)
 
 on:
   pull_request_target:
@@ -20,7 +20,6 @@ defaults:
 
 jobs:
   build-preview:
-    if: github.repository == 'jcps07/matter-handbook'
     runs-on: ubuntu-latest
     steps:
       - name: Install Node.js
@@ -37,7 +36,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           submodules: recursive
           fetch-depth: 0
-      - name: Build with Retype (Free Mode)
+      - name: Build with Retype 
         run: |
           retype build
       - name: Deploy preview
@@ -63,4 +62,3 @@ jobs:
         with:
           message: |
             Preview deployed at ${{ vars.PREVIEW_URL }}/pr-${{ github.event.number }}
-            (Preview built in Retype Free Mode, may contain a watermark.)
