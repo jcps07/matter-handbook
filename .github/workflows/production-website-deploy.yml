@@ -59,12 +59,10 @@ jobs:
       # Determine the GitHub Pages URL and modify retype.yml dynamically.
       - name: Determine Retype URL and Modify retype.yml
         run: |
-          if [[ "${{ github.event.repository.owner.login }}" == "${{ github.repository_owner }}" ]]; then
-            # Construct the GitHub Pages URL based on the repository owner and name.
-            URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+            # Construct the GitHub Pages URL 
+            URL= ${{ steps.deployment.outputs.page_url }}
             # Use sed to replace the url line in retype.yml with the dynamic URL.
             sed -i "s|url:.*|url: $URL|g" retype.yml
-          fi
 
       # Generate the static site from the repository content using Retype. Use License if applies
       # Print the URL used in the retype.yml file.
