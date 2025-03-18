@@ -1,4 +1,4 @@
-name: Production website - Deploy   # Use Retype for GitHub Pages
+name: Production website - Deploy  # Use Retype for GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -43,38 +43,56 @@ jobs:
           npm install retypeapp --global
           retype --version
 
-      # Fetch PR code for building the preview.
+      # Fetch repository code.
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          submodules: recursive
-          fetch-depth: 0
-      
-      # Configure pages
+          ref: ${{ github.ref }} # Check out the specific branch or tag that triggered the workflow
+          submodules: recursive # Check out any Git submodules
+          fetch-depth: 0 # Fetch the entire Git history
+
+      # Configure GitHub Pages deployment.
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
-      # Generate the static site from the PR content using Retype.
+      # Determine the GitHub Pages URL and modify retype.yml dynamically.
+      - name: Determine URL and Modify retype.yml
+        run: |
+          if [[ "${{ github.event.repository.owner.login }}" == "${{ github.repository_owner }}" ]]; then
+            # Construct the GitHub Pages URL based on the repository owner and name.
+            URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+            # Use sed to replace the url line in retype.yml with the dynamic URL.
+            sed -i "s|url:.*|url: $URL|g" retype.yml
+          fi
+
+      # Generate the static site from the repository content using Retype.
       - name: Build with Retype
         run: |
           retype build
-      #retype build --secret ${{ secrets.RETYPE_LICENSE }}
+          #retype build --secret ${{ secrets.RETYPE_LICENSE }} # Uncomment and configure if using a Retype license.
 
+      # Print the final URL used in the retype.yml file.
+      - name: Print URL used
+        run: |
+          URL=$(grep '^url:' retype.yml | awk '{print $2}') # Extract the URL from retype.yml.
+          echo "URL used: $URL" # Print the extracted URL to the workflow log.
+
+      # Upload the generated static site as a GitHub Pages artifact.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-          
+
   # Deployment job
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }} # Set the deployment URL from the deploy-pages step.
     runs-on: ubuntu-latest
-    needs: build
+    needs: build # Ensure the build job completes before deploying.
     steps:
+      # Deploy the artifact to GitHub Pages.
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
