@@ -27,7 +27,7 @@ defaults:
     shell: bash
 
 jobs:
-  build-preview:
+  build:
     # Run build on Ubuntu.
     runs-on: ubuntu-latest
     steps:
