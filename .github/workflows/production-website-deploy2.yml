@@ -50,12 +50,18 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           submodules: recursive
           fetch-depth: 0
+      
+      # Configure pages
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
       # Generate the static site from the PR content using Retype.
       - name: Build with Retype
         run: |
           retype build
       #retype build --secret ${{ secrets.RETYPE_LICENSE }}
+
   # Deployment job
   deploy:
     environment:
