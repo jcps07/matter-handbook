@@ -1,9 +1,7 @@
-+++
-title = "Security & Privacy"
-chapter = false
-weight = 50
-+++
-
+---
+title: Security & Privacy
+order: 500
+---
 Matter was created with security and privacy as key design tenets and provides
 a baseline for building secure IoT devices. The following are key principles of Matter security.
 

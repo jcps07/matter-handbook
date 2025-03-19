@@ -1,9 +1,7 @@
-+++
-title = "Membership"
-chapter = false
-weight = 20
-+++
-
+---
+title: Membership
+order: 40
+---
 ## Join The Alliance
 
 Work with the world’s most innovative companies to create, evolve, and promote universal open standards that connect all IoT devices – regardless of country, network, brand, or function – for a unifying wireless experience that inspires new possibilities for people everywhere.

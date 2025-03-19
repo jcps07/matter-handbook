@@ -1,9 +1,7 @@
-+++
-title = "Discovery"
-chapter = false
-weight = 41
-+++
-
+---
+title: Discovery
+order: 700
+---
 ## Commissionable discovery
 
 Commissionable discovery happens before Commissioning and refers to the process of discovering and identifying a commissionable Node. There are two methods through which a commissionable Node may advertise itself:

@@ -1,9 +1,7 @@
-+++
-title = "Attestation"
-chapter = false
-weight = 45
-+++
-
+---
+title: Attestation
+order: 550
+---
 Certified Devices are Devices that have gone through the Connectivity Standards Alliance (Alliance) Matter Certification Process.
 
 During the commissioning process, a device cryptographically proves (attests) to the Commissioner that:
@@ -39,7 +37,7 @@ The DAC's signature is validated against the Product Attestation Intermediate Ce
 
 At the root of the chain of trust stands the PAA CA's public key, which validates signatures from the PAI. Note that the Matter trust store is federated and the set of PAA certificates trusted by commissioners is maintained in a central trusted database (the Distributed Compliance Ledger). Entry of a PAA within the trusted set requires meeting a certificate policy managed by the Alliance.
 
-![Matter Attestation Public Key Infrastructure](../../primer-attestation-pki.png)
+![Matter Attestation Public Key Infrastructure](/static/primer-attestation-pki.png)
 
 The PAI is also a X.509 v3 certificate that includes:
 
@@ -64,7 +62,7 @@ Lastly, the PAA is the root certificate in the chain and it is self-signed. It i
 
 The attestation process has several documents and messages. The following items are a brief overview of their function and composition. The image below aids in the understanding of their hierarchy.
 
-![Attestation Document Hierarchy](../../primer-attestation-document-hierarchy.png)
+![Attestation Document Hierarchy](/static/primer-attestation-document-hierarchy.png)
 
 ### Certification Declaration (CD)
 

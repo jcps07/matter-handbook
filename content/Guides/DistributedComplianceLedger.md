@@ -1,17 +1,13 @@
-+++
-title = "Distributed Compliance Ledger (DCL)"
-
-chapter = false
-weight = 10
-+++
-
-
+---
+title: Distributed Compliance Ledger
+---
 ## Table of Contents
+- [Table of Contents](#table-of-contents)
 - [DCL Introduction](#dcl-introduction)
   - [Types of nodes that operate in the DCL](#types-of-nodes-that-operate-in-the-dcl)
   - [Types of account roles that can interact with the DCL](#types-of-account-roles-that-can-interact-with-the-dcl)
-  - [Main-Net and Test-Net?](#main-net-and-test-net)
-  - [Access and Interaction with the DCL](#access-and-interaction-with-the-dcl)
+  - [Main-Net and Test-Net](#main-net-and-test-net)
+  - [Access and interaction with the DCL](#access-and-interaction-with-the-dcl)
   - [Getting an account for writing to the DCL](#getting-an-account-for-writing-to-the-dcl)
   - [Interacting with the DCL](#interacting-with-the-dcl)
     - [Web User Interface](#web-user-interface)
@@ -41,7 +37,6 @@ Additional information available in the [Distributed Compliance Ledger (DCL) Pol
 | Type of Node         | Description                                                                                                                                          |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Validator Node (VN)  | Participates in creating the consensus process to add information into the ledger. The consensus is the process by which the nodes agree on the state and data of the blockchain, ensuring all nodes have a consistent ledger while verifying the validity of transactions.                                                                                                                                       |
-
 | Sentry Node (SN)     | Doesn\'t participate in consensus and wraps the VN representing it for the rest of the network as one of the ways for DDoS and access protection.    |
 | Observer Node (ON)   | Doesn\'t participate in consensus and is optimized for public data read and authenticated write interactions with the ledger.                        |
 

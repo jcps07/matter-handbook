@@ -1,9 +1,7 @@
-+++
-title = "Thread"
-chapter = false
-weight = 60
-+++
-
+---
+title: Thread
+order: 450
+---
 ## Low Power
 
 Some Matter Nodes are wired and have energy budgets that allow them to keep their radios continuously on. Other types of Nodes such as sensors have requirements to run for years on a battery, operating their radios on low-power networks such as Thread. The proxy architecture, along with Thread Sleepy End Devices, allows full-powered Nodes to provide both network-level and application-level functionality that insulates their child Nodes from energy-intensive transactions.
@@ -41,6 +39,7 @@ For example, a Matter Multicast address might look like this:
 ```FF35:0040:FD<Fabric ID>00:<Group ID>```
 
 This Table details how this address is constructed:
+
 |Bits|Description|
 |--- |--- |
 |12 bits|0xFF3|
